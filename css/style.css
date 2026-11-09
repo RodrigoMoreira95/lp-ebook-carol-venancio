@@ -160,13 +160,21 @@ h1{font-size:clamp(34px,3.6vw + 8px,58px);line-height:1.1;letter-spacing:-.3px}
   .callout{padding:32px}
   .sec--light .split{flex-direction:column-reverse}
   .sticky-cta{display:inline-flex}
+  /* hero: foto em cima, texto embaixo (sem texto sobre os rostos) */
+  .hero{--hh:clamp(300px,58vw,460px);display:block;min-height:0;padding-top:var(--hh);background-size:auto var(--hh);background-position:72% top;background-repeat:no-repeat}
+  .hero::before{content:"";position:absolute;left:0;right:0;top:0;height:var(--hh);background:linear-gradient(180deg,rgba(3,6,15,0) 55%,#03060f);pointer-events:none}
+  .hero .wrap{position:relative;padding-block:24px 56px}
+  .hero__text{max-width:640px}
+  /* imagens recortadas para encurtar a página */
+  .split__media img{aspect-ratio:4/3;object-fit:cover;object-position:center 30%}
 }
 @media (max-width:640px){
   .sec{padding-block:48px}
   .stack{gap:40px}
-  .hero{min-height:auto;background-position:68% center}
-  .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(3,6,15,.55),rgba(3,6,15,.88))}
-  .hero .wrap{position:relative;padding-block:64px}
+  .hero{--hh:clamp(280px,78vw,340px);background-position:70% top}
+  .hero .wrap{padding-block:16px 48px}
+  .hero__text{gap:20px}
+  .split__media img{aspect-ratio:1/1}
   .btn{width:100%;padding:20px 24px}
   .band__in{flex-direction:column;gap:12px;text-align:center;padding-block:24px}
   .questions{padding:20px}
